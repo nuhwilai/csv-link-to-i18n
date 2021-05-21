@@ -7,7 +7,6 @@ const getCSV = require("get-csv");
 const _ = require("lodash");
 
 const program = require("commander");
-// process.argv[2]
 
 const DEFAULT_LANG = "all";
 const DEFAULT_DIR = "./";
@@ -35,7 +34,6 @@ program
   .parse(process.argv);
 
 const options = program.opts();
-console.log(options);
 main();
 
 async function main() {
@@ -44,15 +42,15 @@ async function main() {
       program.args[0]
     );
     if (options.lang) {
-      let lang = options.lang?.toLowerCase();
+      let lang = _.lowerCase(options.lang);
 
       if (lang === "all") {
-        langs.forEach((lang) => {
+        _.forEach(langs, (lang) => {
           selectLang(results, lang);
         });
       } else {
-        const _langs = options.lang.split(" ");
-        _langs.forEach((lang) => {
+        const _langs = _.split(options.lang, " ");
+        _.forEach(_langs, (lang) => {
           selectLang(results, lang);
         });
       }
@@ -75,7 +73,7 @@ function selectLang(results, lang) {
     _.forEach(data, (v, k) => {
       _.set(obj, k, v);
     });
-    data = obj
+    data = obj;
   }
 
   exportDataToJSON(data, lang);
@@ -92,7 +90,7 @@ async function getDateFromGoogleSpreadSheet(url) {
     });
     return [results, langs];
   } catch (err) {
-    console.log(err.message); //can be console.error
+    console.error(err.message);
   }
 }
 
@@ -108,6 +106,6 @@ function exportDataToJSON(data, type) {
       JSON.stringify(data, null, options.beautify)
     );
   } catch (err) {
-    console.log(err.message); //can be console.error
+    console.error(err.message);
   }
 }

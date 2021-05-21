@@ -1,6 +1,6 @@
 {
-  "name": "csv-url-to-i18n",
-  "version": "1.0.0",
+  "name": "@nuhwilai/csv-url-to-i18n",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -12,7 +12,7 @@
   "files": [
     "index.js"
   ],
-  "author": "",
+  "author": "minimonster",
   "license": "ISC",
   "dependencies": {
     "commander": "^7.2.0",
