@@ -1,0 +1,22 @@
+{
+  "name": "csv-url-to-i18n",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "csv-url-to-i18n": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "get-csv": "^3.0.3",
+    "lodash": "^4.17.21"
+  }
+}
